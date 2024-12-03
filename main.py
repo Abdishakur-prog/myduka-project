@@ -10,7 +10,8 @@ app=Flask(__name__)
 @app.route("/")
 
 def index():
-    return render_template("index.html")
+    name="mohamed"
+    return render_template("index.html", myname=name)
 
 @app.route("/about")
 def about():
@@ -24,7 +25,9 @@ def contact():
 def fetchProducts():
     cur.execute("select * from products;")
     products=cur.fetchall()
-    return render_template("products.html")
+    print(products)
+    
+    return render_template("products.html", myproducts=products)
 
 
 

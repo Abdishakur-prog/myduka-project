@@ -1,15 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>products</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni id itaque, commodi libero ipsam minus a beatae modi, distinctio quos rerum magnam in amet quisquam voluptates repudiandae quis cum qui.
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita unde quisquam non deserunt commodi neque quos reprehenderit provident aliquam sunt, tempore veniam quia facere? Tempore praesentium fugit aperiam nostrum illo.
-        
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni id itaque, commodi libero ipsam minus a beatae
+        modi, distinctio quos rerum magnam in amet quisquam voluptates repudiandae quis cum qui.
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita unde quisquam non deserunt commodi neque quos
+        reprehenderit provident aliquam sunt, tempore veniam quia facere? Tempore praesentium fugit aperiam nostrum
+        illo.
+
     </p>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>Buying price</th>
+                <th>Selling price</th>
+                <th>Stock quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in myproducts %}
+            <tr>
+                <td> {{p[0]}}</td>
+                <td> {{p[1]}}</td>
+                <td> {{p[2]}}</td>
+                <td> {{p[3]}}</td>
+                <td> {{p[4]}}</td>
+                <td> {{p[5]}}</td>
+
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+
+
+
 </body>
+
 </html>
