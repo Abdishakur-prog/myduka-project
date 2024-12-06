@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 import psycopg2
 conn=psycopg2.connect(user="postgres",password="1234",host="localhost",database="myduka")
 cur=conn.cursor()
@@ -21,16 +21,19 @@ def about():
 def contact():
     return render_template("contact.html")
 
-@app.route("/products")
+@app.route("/products",methods=["GET","POST"])
 def fetchProducts():
-    cur.execute("select * from products;")
-    products=cur.fetchall()
-    print(products)
-    
-    return render_template("products.html", myproducts=products)
-
-
-
+    if request.method=="GET":
+        cur.execute("select * from products;")
+        products=cur.fetchall()
+        return render_template("products.html", myproducts=products)
+    else:
+        name=request.form["pname"]
+        buying_price=request.form["bp"]
+        selling_price=request.form["sp"]
+        stock_quantity=request.form["st"]
+        print(name,buying_price,selling_price,stock_quantity)
+        return "products added succesfully"
 
 
 app.run()
